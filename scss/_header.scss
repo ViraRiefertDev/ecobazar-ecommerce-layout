@@ -1,0 +1,577 @@
+@use "sass:math";
+@use "_colors.scss" as *;
+@use "_mixins.scss" as *;
+
+//!-----HEADER--------------------
+.header {
+  /*   position: fixed; */
+  // .header__top
+  &__top {
+    @media (min-width: toEm($mobile)) {
+      border-bottom: 1px solid $grey1;
+    }
+  }
+  // .header__body
+  &__body {
+  }
+  // .header__bottom
+  &__bottom {
+  }
+}
+
+//------------------------------------------------------------------------
+//-----TOP-HEADER--------------------
+//------------------------------------------------------------------------
+.top-header {
+  // .top-header__container
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: toRem(12);
+    gap: toRem(5) toRem(10);
+
+    @media (max-width: toEm($mobile)) {
+      flex-direction: column-reverse;
+      gap: toRem(20);
+      background-color: $grey9;
+      border-radius: toRem(8);
+    }
+  }
+  // .top-header__location
+  &__location {
+  }
+  // .top-header__link-location
+  &__link-location {
+    display: inline-flex;
+    align-items: center;
+    gap: toRem(8);
+    @include typography("T");
+    transition: color 0.3s;
+    &::before {
+      align-self: flex-start;
+      @include typography("L");
+      flex-shrink: 0;
+    }
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        color: $successDark;
+      }
+    }
+    @media (max-width: toEm($mobile)) {
+      color: $white;
+      @include typography("L");
+      &:before {
+        @include typography("XXL");
+      }
+    }
+  }
+  // .top-header__actions
+  &__actions {
+  }
+  @media (max-width: toEm($mobile)) {
+  }
+}
+.actions-top-header {
+  display: flex;
+  gap: toRem(20);
+  align-items: center;
+  // .actions-top-header__lang-currency
+  &__lang-currency {
+  }
+  // .actions-top-header__auth
+  &__auth {
+  }
+  @media (max-width: toEm($mobile)) {
+    flex-direction: column;
+  }
+}
+.lang-currency {
+  display: flex;
+  align-items: center;
+  gap: toRem(20);
+
+  @media (min-width: toEm($mobile)) {
+    &::after {
+      content: "";
+      width: toRem(1);
+      height: toRem(15);
+      background-color: $grey1;
+    }
+  }
+  @media (max-width: toEm($mobile)) {
+    gap: toRem(15);
+  }
+  // .lang-currency__element
+  &__element {
+    position: relative;
+    &::before {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      translate: 0 -50%;
+      font-size: toRem(4.5);
+      pointer-events: none;
+      @media (max-width: toEm($mobile)) {
+        font-size: toRem(8);
+        color: $white;
+      }
+    }
+  }
+
+  // .lang-currency__select
+  &__select {
+    padding-right: toRem(16.5);
+    appearance: none;
+    @include typography("T");
+    @media (max-width: toEm($mobile)) {
+      @include typography("XXL");
+      color: $white;
+      option {
+        color: $grey9;
+      }
+    }
+  }
+  // .lang-currency__item
+  &__item {
+  }
+}
+.auth-top-header {
+  @include typography("T");
+  // .auth-top-header__link
+  &__link {
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+      }
+    }
+  }
+  @media (max-width: toEm($mobile)) {
+    @include typography("XL");
+    color: $white;
+  }
+}
+
+//------------------------------------------------------------------------
+//-----BODY-HEADER--------------------
+//------------------------------------------------------------------------
+.body-header {
+  background-color: $white;
+  position: relative;
+  z-index: 2;
+  // .body-header__container
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: toRem(5) toRem(20);
+    padding-block: toRem(24);
+    @media (max-width: toEm($mobile)) {
+      padding-block: toRem(10);
+    }
+  }
+  // .body-header__logo
+  &__logo {
+    flex-shrink: 0;
+    @media (max-width: toEm($mobile)) {
+      flex-grow: 1;
+    }
+  }
+  &__place-search {
+    flex-basis: toRem(498);
+    @media (max-width: toEm($mobile)) {
+      display: none;
+    }
+  }
+  // .body-header__search
+  &__search {
+    flex-grow: 1;
+    @media (min-width: toEm($tablet)) {
+      margin-left: toRem(8);
+    }
+  }
+  // .body-header__actions
+  &__actions {
+    flex-shrink: 0;
+  }
+}
+.logo-header {
+  display: flex;
+  align-items: center;
+  gap: toRem(8);
+  // .logo-header__icon
+  &__icon {
+  }
+  // .logo-header__text
+  &__text {
+    @include typography("h5", 500);
+    color: $green9;
+    @media (max-width: toEm(380)) {
+      @include typography("XL", 500);
+    }
+  }
+}
+.search-header {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+
+  border-radius: toRem(6);
+  &:not(.--dynamic) {
+    outline: toRem(1) solid $grey1;
+  }
+  &::before {
+    position: absolute;
+    pointer-events: none;
+    @include typography("M");
+    color: $grey9;
+    top: 50%;
+    left: toRem(17.5);
+    translate: 0 -50%;
+  }
+  // .search-header__input
+  &__input {
+    background-color: $white;
+    padding-left: toRem(44);
+    padding-right: toRem(18);
+    border-radius: toRem(6) 0 0 toRem(6);
+    height: toRem(45);
+    color: $grey9;
+    @include typography("M");
+    &::placeholder {
+      transition: opacity 0.1s;
+      color: $grey5;
+    }
+    &:focus::placeholder {
+      opacity: 0;
+    }
+  }
+  // .search-header__button
+  &__button {
+    padding-inline: toRem(24);
+    border-radius: 0 toRem(6) toRem(6) 0;
+  }
+}
+
+.actions-header {
+  display: flex;
+  align-items: center;
+  gap: toRem(17.4);
+  // .actions-header__favorite
+  &__favorite {
+    display: flex;
+    align-items: center;
+    gap: toRem(17.4);
+    color: $grey9;
+    transition: color 0.3s;
+    &::before {
+      @include typography("XXL");
+    }
+
+    @media (min-width: toEm($mobile)) {
+      &:not(:last-child) {
+        &::after {
+          content: "";
+          width: toRem(1);
+          height: toRem(24);
+          background-color: $grey2;
+        }
+      }
+    }
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        color: $successDark;
+      }
+    }
+  }
+  // .actions-header__cart
+  &__cart {
+  }
+}
+.cart-header {
+  display: flex;
+  gap: toRem(14);
+  align-items: center;
+  * {
+    transition: color 0.3s;
+  }
+  // .cart-header__icon
+  &__icon {
+    color: $grey9;
+    @include typography("XXL");
+    position: relative;
+    translate: 0 toRem(3);
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: toRem(-5.5);
+      top: toRem(-5.5);
+      font-size: toRem(10);
+      line-height: 1;
+      width: toRem(18);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      outline: toRem(1) solid $white;
+      background-color: $successDark;
+      color: $white;
+    }
+  }
+  // .cart-header__body
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(7);
+    @media (max-width: toEm($mobile)) {
+      display: none;
+    }
+  }
+  // .cart-header__label
+  &__label {
+    color: $grey7;
+    @include typography("XT");
+  }
+  // .cart-header__value
+  &__value {
+    @include typography("S", 500);
+    line-height: 1;
+    color: $grey9;
+  }
+  @media (any-hover: hover) and (any-pointer: fine) {
+    &:hover,
+    &:focus-visible {
+      .cart-header__icon,
+      .cart-header__label,
+      .cart-header__value {
+        color: $successDark;
+      }
+    }
+  }
+}
+
+//------------------------------------------------------------------------
+//-----BOTTOM-HEADER--------------------
+//------------------------------------------------------------------------
+
+.bottom-header {
+  position: relative;
+  &::before {
+    content: "";
+    background-color: $grey8;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+  background-color: $grey8;
+  // .bottom-header__container
+  &__container {
+    display: flex;
+    gap: toRem(10);
+    @media (max-width: toEm($mobile)) {
+      padding-block: toRem(10);
+    }
+  }
+  // .bottom-header__menu
+  &__menu {
+    flex-grow: 1;
+  }
+  // .bottom-header__phone
+  &__phone {
+    position: relative;
+    z-index: 2;
+
+    display: inline-flex;
+
+    align-items: center;
+    flex-shrink: 0;
+    gap: toRem(10.7);
+    @include typography("S", 500);
+    color: $white;
+    transition: color 0.3s;
+    &:not(.--dynamic) {
+      padding-block: toRem(19.5);
+      align-self: flex-start;
+    }
+
+    &::before {
+      @include typography("XL");
+    }
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        color: $success;
+      }
+    }
+    &.--dynamic {
+      color: $grey9;
+      span {
+        display: none;
+      }
+    }
+  }
+}
+.menu {
+  display: flex;
+  @media (max-width: toEm($mobile)) {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    transition: left 0.5s;
+    overflow: auto;
+    /* z-index: 6; */
+    padding: toRem(130) toRem(15) toRem(30) toRem(15);
+    background: $successDark;
+    .open-menu & {
+      left: 0;
+    }
+  }
+  // .menu__body
+  &__body {
+    @media (mix-width: toEm($mobile)) {
+      display: flex;
+    }
+  }
+  // .menu__list
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: toRem(0) toRem(35);
+    min-height: 100%;
+    @media (max-width: toEm($mobile)) {
+      flex-direction: column;
+      margin-bottom: toRem(15);
+    }
+  }
+  // .menu__item
+  &__item {
+    position: relative;
+    display: flex;
+    color: $grey4;
+    transition:
+      color 0.8s,
+      translate 0.8s;
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        .sub-menu {
+          visibility: visible;
+          pointer-events: auto;
+          translate: 0 toRem(0);
+        }
+        .menu__button {
+          &::before {
+            rotate: -180deg;
+          }
+        }
+      }
+    }
+    &.--active {
+      color: $white;
+      .sub-menu {
+        visibility: visible;
+        pointer-events: auto;
+        translate: 0 toRem(0);
+      }
+      .menu__button {
+        &::before {
+          rotate: -180deg;
+        }
+      }
+    }
+    @media (max-width: toEm($mobile)) {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      flex-basis: 100%;
+    }
+  }
+  // .menu__link
+  &__link {
+    display: flex;
+    align-items: center;
+    @include typography("S", 500);
+    padding-block: toRem(16);
+    position: relative;
+    z-index: 2;
+    @media (max-width: toEm($mobile)) {
+      color: $white;
+      padding-block: toRem(15);
+      @include typography("h4", 500);
+    }
+  }
+  // .menu__button
+  &__button {
+    position: relative;
+    z-index: 2;
+    padding-left: toRem(6.7);
+    font-size: toRem(6);
+    &::before {
+      transition: rotate 0.4s;
+    }
+
+    [data-touch] & {
+      font-size: toRem(10);
+    }
+    @media (max-width: toEm($mobile)) {
+      display: none;
+    }
+  }
+}
+
+.sub-menu {
+  transition: all 0.3s;
+  padding: toRem(15);
+  background-color: $successDark;
+
+  border-radius: 0 0 toRem(8) toRem(8);
+  // .sub-menu__item
+  &__item {
+    &:not(:last-child) {
+      @media (max-width: toEm($mobile)) {
+        margin-bottom: toRem(15);
+      }
+    }
+  }
+  // .sub-menu__link
+  &__link {
+    @include typography("M");
+    color: $white;
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+      }
+    }
+    @media (max-width: toEm($mobile)) {
+      @include typography("XL");
+    }
+  }
+  @media (max-width: toEm($mobile)) {
+    flex-grow: 1;
+    flex-basis: 100%;
+    background-color: $grey9;
+    border-radius: toRem(8);
+  }
+  @media (min-width: toEm($mobile)) {
+    position: absolute;
+    left: toRem(-15);
+    top: 100%;
+    translate: 0 -100%;
+    visibility: hidden;
+    pointer-events: none;
+    width: toRem(200);
+  }
+}

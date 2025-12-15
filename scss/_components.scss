@@ -1,0 +1,178 @@
+@use "sass:math";
+@use "_colors.scss" as *;
+@use "_mixins.scss" as *;
+hr {
+  border-bottom: 1px solid black;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+.components__container {
+  padding-top: 20px;
+}
+
+//------------------------------------------------------------------------
+.title {
+  color: $grey9;
+  line-height: 1.5;
+  @include typography("h5", 600);
+  line-height: 1.2;
+  &--big {
+    @include typography("h2", 600);
+  }
+}
+//------------------------------------------------------------------------
+.link-arrow {
+  color: $success;
+  line-height: 1.5;
+  @include typography("M", 500);
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: toRem(12);
+  align-items: center;
+  transition: color 0.3s;
+  &::before {
+    @include typography("T");
+  }
+
+  @media (any-hover: hover) and (any-pointer: fine) {
+    &:hover,
+    &:focus-visible {
+      color: $successDark;
+    }
+  }
+}
+//------------------------------------------------------------------------
+.block-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: toRem(10);
+  // .block-header--center
+  &--margin {
+    @include adaptiveValue("margin-bottom", 32, 15);
+  }
+  &--center {
+    align-items: center;
+  }
+  // .block-header__title
+  &__title {
+    flex-grow: 1;
+  }
+  // .block-header__link
+  &__link {
+  }
+
+  &__slider-arrows {
+    display: flex;
+    flex-shrink: 0;
+    gap: toRem(12);
+  }
+  // .block-header__slider-arrow
+  &__slider-arrow {
+    width: toRem(45);
+    aspect-ratio: 1;
+    background-color: $white;
+    border: 1px solid $grey1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+      background-color 0.3s,
+      color 0.3s,
+      border-color 0.3s;
+    @include typography("M");
+    color: $grey9;
+    // .block-header__slider-arrow--left
+    &--left {
+      transform: rotate(-180deg);
+    }
+    // .block-header__slider-arrow--right
+    &--right {
+    }
+
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        background-color: $success;
+        color: $white;
+        border-color: $success;
+      }
+    }
+  }
+}
+//------------------------------------------------------------------------
+.button {
+  border-radius: toRem(43);
+  padding-inline: toRem(40);
+  padding-block: toRem(16);
+  background-color: $success;
+  @include typography("M", 600);
+  color: $white;
+  transition: background-color 0.3s;
+  &--middle {
+    @include typography("S", 600);
+    padding-inline: toRem(32);
+    padding-block: toRem(14.11);
+  }
+  &--small {
+    @include typography("T", 600);
+    padding-inline: toRem(24);
+    padding-block: toRem(10);
+  }
+  @media (any-hover: hover) and (any-pointer: fine) {
+    &:hover,
+    &:focus-visible {
+      background-color: $successDark;
+    }
+  }
+}
+
+//------------------------------------------------------------------------
+.icon-menu {
+  @media (min-width: toEm($mobile)) {
+    display: none;
+  }
+  @media (max-width: toEm($mobile)) {
+    flex-shrink: 0;
+    position: relative;
+    width: toRem(30);
+    height: toRem(18);
+    span,
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: toRem(2);
+      width: 100%;
+      right: 0;
+      background-color: $grey9;
+      transition: all 0.5s;
+    }
+    span {
+      top: 50%;
+      translate: 0 -50%;
+    }
+    &:before {
+      top: 0;
+    }
+    &:after {
+      bottom: 0;
+    }
+    .open-menu & {
+      span {
+        width: 0;
+      }
+      &:before {
+        top: 50%;
+        rotate: -45deg;
+        translate: 0 -50%;
+      }
+      &:after {
+        bottom: 50%;
+        rotate: 45deg;
+        translate: 0 50%;
+      }
+    }
+  }
+}
