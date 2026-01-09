@@ -3,9 +3,12 @@
 @use "_iconfont.scss";
 @use "_colors.scss" as *;
 @use "_mixins.scss" as *;
+//Parts
 @use "_components.scss";
 @use "_header.scss";
 @use "_footer.scss";
+//Pages
+@use "_home.scss";
 
 body {
   font-family: "Poppins", sans-serif;

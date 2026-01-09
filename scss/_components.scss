@@ -31,6 +31,8 @@ hr {
   align-items: center;
   transition: color 0.3s;
   &::before {
+    font-family: "iconfont";
+    content: "\e900";
     @include typography("T");
   }
 
@@ -109,7 +111,15 @@ hr {
   background-color: $success;
   @include typography("M", 600);
   color: $white;
-  transition: background-color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  &--white {
+    background-color: $white;
+    color: $success;
+  }
+
   &--middle {
     @include typography("S", 600);
     padding-inline: toRem(32);
@@ -120,9 +130,21 @@ hr {
     padding-inline: toRem(24);
     padding-block: toRem(10);
   }
+  &--arrow {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    gap: toRem(12);
+    align-items: center;
+    &::before {
+      font-family: "iconfont";
+      content: "\e900";
+      @include typography("T");
+    }
+  }
   @media (any-hover: hover) and (any-pointer: fine) {
     &:hover,
     &:focus-visible {
+      color: $white;
       background-color: $successDark;
     }
   }
