@@ -147,7 +147,8 @@ $responsiveType: 1;
   }
   @if $size == "h2" {
     $fontSize: 48;
-    $fontSizeMob: 28;
+    $fontSizeMob: 24;
+    // $fontSizeMob: 28;
     $lineHeight: 1.2;
   }
   @if $size == "h3" {

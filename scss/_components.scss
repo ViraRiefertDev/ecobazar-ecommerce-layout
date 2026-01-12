@@ -133,6 +133,7 @@ hr {
   &--arrow {
     display: inline-flex;
     flex-direction: row-reverse;
+    justify-content: center;
     gap: toRem(12);
     align-items: center;
     &::before {

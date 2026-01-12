@@ -19,13 +19,10 @@
   // .hero__container
   &__container {
     display: grid;
-    // min-height: toRem(600);
     grid-template-columns: repeat(3, 1fr);
-    // grid-auto-rows: 1fr;
     gap: toRem(24);
     @media (max-width: toEm($tablet)) {
       grid-template-columns: repeat(2, 1fr);
-      // grid-auto-rows: auto;
     }
     @media (max-width: toEm(560)) {
       grid-template-columns: auto;
@@ -44,11 +41,8 @@
 
 .item-hero {
   display: flex;
-  overflow: hidden;
   position: relative;
-  border-radius: toRem(10);
   @include adaptiveValue("min-height", 288, 200);
-
   &:nth-child(1) {
     grid-column: span 2;
     grid-row: span 2;
@@ -91,6 +85,8 @@
     height: 100%;
     top: 0;
     left: 0;
+    border-radius: toRem(10);
+    overflow: hidden;
     &--decor {
       border: toRem(1) solid #000;
       box-shadow: 0 toRem(4) toRem(4) 0 rgba(0, 0, 0, 0.25);
@@ -102,14 +98,21 @@
         height: 100%;
         top: 0;
         left: 0;
+        @media (max-width: toEm($mobileSmall)) {
+          background: linear-gradient(99deg, rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0) 95%);
+        }
       }
     }
   }
   // .item-hero__image
   &__image {
+    border-radius: toRem(10);
     width: 100%;
     height: 100%;
     object-fit: cover;
+    @media (max-width: toEm($tablet)) {
+      object-position: center 20%;
+    }
   }
 }
 
@@ -146,12 +149,18 @@
   &__label {
     @include typography("S");
   }
+  &__button {
+    @media (max-width: toEm($mobileSmall)) {
+      width: 100%;
+    }
+  }
 }
 
 //------------------------------------------------------------------------
 //-----TYPE-2-CARD-HERO--------------------
 //------------------------------------------------------------------------
 .type-2-hero-item {
+  justify-content: flex-start;
   color: $grey9;
   > * {
     margin-bottom: toRem(8);
