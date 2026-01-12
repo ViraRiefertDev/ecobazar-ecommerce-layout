@@ -13,6 +13,10 @@
   &__benefits {
     @include adaptiveValue("margin-bottom", 60, 30);
   }
+  // .page__popular
+  &__popular {
+    @include adaptiveValue("margin-bottom", 50, 30);
+  }
 }
 
 //------------------------------------------------------------------------
@@ -268,5 +272,87 @@
     color: $grey4;
     @include typography("S");
     line-height: 1;
+  }
+}
+
+//------------------------------------------------------------------------
+//-----POPULAR CATEGORIES--------------------
+//------------------------------------------------------------------------
+
+.popular {
+  // .popular__header
+  &__header {
+  }
+  // .popular__items
+  &__items {
+    display: grid;
+    @include adaptiveValue("gap", 24, 10);
+    grid-template-columns: repeat(auto-fill, minmax(toRem(180), 1fr));
+    @media (max-width: toEm($mobileSmall)) {
+      scroll-snap-type: x mandatory;
+      display: flex;
+      overflow: auto;
+      margin-inline: toRem(-15);
+      padding-left: toRem(15);
+      scrollbar-width: none; // Firefox
+      &::-webkit-scrollbar {
+        display: none; // Chrome, Safari
+      }
+    }
+  }
+  // .popular__item
+  &__item {
+    @media (max-width: toEm($mobileSmall)) {
+      scroll-snap-align: start;
+      flex-basis: toRem(180);
+      flex-shrink: 0;
+      &:last-child {
+        margin-right: toRem(15);
+      }
+    }
+  }
+}
+
+.item-category {
+  border-radius: toRem(5);
+  border: 1px solid $grey1;
+  background-color: $white;
+  transition: all 0.3s;
+  @media (any-hover: hover) and (any-pointer: fine) {
+    &:hover,
+    &:focus-visible {
+      border-color: $successDark;
+      box-shadow: 0px 0px toRem(12) 0px rgba(32, 181, 38, 0.32);
+      .item-category__name {
+        color: $successDark;
+      }
+    }
+  }
+  // .item-category__link
+  &__link {
+    display: block;
+    padding-top: toRem(16);
+    padding-bottom: toRem(24);
+  }
+  // .item-category__picture
+  &__picture {
+    aspect-ratio: 190 / 130;
+    &:not(:last-child) {
+      margin-bottom: toRem(16);
+    }
+  }
+  // .item-category__image
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  // .item-category__name
+  &__name {
+    @include typography("L", 500);
+    color: $grey9;
+    text-align: center;
+    padding-inline: toRem(5);
+    transition: color 0.3s;
   }
 }
