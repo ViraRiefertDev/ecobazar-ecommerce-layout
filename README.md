@@ -54,10 +54,10 @@ Project focuses on clean semantics, BEM architecture, adaptive layout and produc
 ### Desktop
 
 **Grid layout**
-![Desktop Grid](screenshots/desktop/popular-categories-desktop.png)
+![Desktop Grid](screenshots/desktop/popular-categories-desktop.jpg)
 
 **Hover state**
-![Desktop Hover](screenshots/desktop/popular-categories-hover.png)
+![Desktop Hover](screenshots/desktop/popular-categories-hover.jpg)
 
 ---
 
