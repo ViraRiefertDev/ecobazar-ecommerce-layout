@@ -1898,6 +1898,22 @@ hr {
   gap: 0.5rem;
 }
 @media (min-width: 84.375em) {
+  .page__benefits {
+    margin-bottom: 60px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .page__benefits {
+    margin-bottom: clamp( 30px , 20.6796116505px  +  2.9126213592vw , 60px );
+  }
+}
+@media (max-width: 20em) {
+  .page__benefits {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 84.375em) {
   .hero {
     padding-block: 28px;
   }
@@ -2290,6 +2306,91 @@ hr {
 }
 .type-3-hero-item:last-child {
   margin-bottom: 0;
+}
+
+.benefits__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9375rem;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0px 0.5rem 2.5rem 0px rgba(0, 38, 3, 0.08);
+          box-shadow: 0px 0.5rem 2.5rem 0px rgba(0, 38, 3, 0.08);
+  background-color: #fff;
+}
+@media (min-width: 84.375em) {
+  .benefits__items {
+    padding: 40px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .benefits__items {
+    padding: clamp( 20px , 13.786407767px  +  1.9417475728vw , 40px );
+  }
+}
+@media (max-width: 20em) {
+  .benefits__items {
+    padding: 20px;
+  }
+}
+.item-benefit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+.item-benefit__picture {
+  text-align: center;
+  width: 2.5rem;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.item-benefit__body {
+  display: grid;
+  gap: 0.5rem;
+}
+.item-benefit__title {
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1a1a1a;
+}
+@media (min-width: 84.375em) {
+  .item-benefit__title {
+    font-size: 16px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .item-benefit__title {
+    font-size: clamp( 14px , 13.3786407767px  +  0.1941747573vw , 16px );
+  }
+}
+@media (max-width: 20em) {
+  .item-benefit__title {
+    font-size: 14px;
+  }
+}
+.item-benefit__text {
+  color: #999;
+  font-weight: 400;
+  line-height: 1.5;
+  line-height: 1;
+}
+@media (min-width: 84.375em) {
+  .item-benefit__text {
+    font-size: 14px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .item-benefit__text {
+    font-size: clamp( 14px , 14px  +  0vw , 14px );
+  }
+}
+@media (max-width: 20em) {
+  .item-benefit__text {
+    font-size: 14px;
+  }
 }
 
 body {
