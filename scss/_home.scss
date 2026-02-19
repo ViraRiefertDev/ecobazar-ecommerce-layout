@@ -14,8 +14,12 @@
     @include adaptiveValue("margin-bottom", 60, 30);
   }
   // .page__popular
-  &__popular {
+  &__popular-categories {
     @include adaptiveValue("margin-bottom", 50, 30);
+  }
+  // .page__popular-products
+  &__popular-products {
+    @include adaptiveValue("margin-bottom", 60, 30);
   }
 }
 
@@ -279,7 +283,7 @@
 //-----POPULAR CATEGORIES--------------------
 //------------------------------------------------------------------------
 
-.popular {
+.popular-categories {
   // .popular__header
   &__header {
   }
@@ -294,9 +298,10 @@
       overflow: auto;
       margin-inline: toRem(-15);
       padding-left: toRem(15);
-      scrollbar-width: none; // Firefox
+      scroll-padding-left: toRem(15);
+      scrollbar-width: none;
       &::-webkit-scrollbar {
-        display: none; // Chrome, Safari
+        display: none;
       }
     }
   }
@@ -354,5 +359,18 @@
     text-align: center;
     padding-inline: toRem(5);
     transition: color 0.3s;
+  }
+}
+
+//------------------------------------------------------------------------
+//-----POPULAR PRODUCTS--------------------
+//------------------------------------------------------------------------
+
+.popular-products {
+  // .popular-products__container
+  &__container {
+  }
+  // .popular-products__header
+  &__header {
   }
 }
