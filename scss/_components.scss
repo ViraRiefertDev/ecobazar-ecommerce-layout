@@ -219,7 +219,6 @@ hr {
 }
 
 //------------------------------------------------------------------------
-
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(toRem(250), 1fr));
@@ -426,6 +425,46 @@ hr {
       [data-touch] & {
         color: white;
       }
+    }
+  }
+}
+
+//------------------------------------------------------------------------
+.countdown {
+  // .countdown__timer
+  &__timer {
+    text-align: center;
+  }
+  // .countdown__digits
+  &__digits {
+    display: flex;
+    @include typography("XXL", 400);
+    &:not(:last-child) {
+      margin-bottom: toRem(4);
+    }
+    span {
+      position: relative;
+      flex-grow: 1;
+      flex-basis: toRem(20);
+      &:not(:last-child) {
+        &::after {
+          content: ":";
+          position: absolute;
+          right: 0;
+          top: 50%;
+          translate: 0 -50%;
+        }
+      }
+    }
+  }
+  // .countdown__labels
+  &__labels {
+    display: flex;
+    font-size: toRem(12);
+    text-transform: uppercase;
+    span {
+      flex-grow: 1;
+      flex-basis: toRem(20);
     }
   }
 }
