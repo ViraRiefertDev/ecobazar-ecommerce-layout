@@ -605,10 +605,10 @@ hr {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background: url(/img/icons/star.svg) 0 0/100% no-repeat;
+  background: url(../img/icons/star.svg) 0 0/100% no-repeat;
 }
 .rating__item:checked, .rating__item:checked ~ * {
-  background: url(/img/icons/star-active.svg) 0 0/100% no-repeat;
+  background: url(../img/icons/star-active.svg) 0 0/100% no-repeat;
 }
 @media (min-width: 84.375em) {
   .rating__quantity {

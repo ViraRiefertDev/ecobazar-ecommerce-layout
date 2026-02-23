@@ -224,10 +224,10 @@ hr {
     width: toRem(10);
     aspect-ratio: 1;
     appearance: none;
-    background: url(/img/icons/star.svg) 0 0 / 100% no-repeat;
+    background: url(../img/icons/star.svg) 0 0 / 100% no-repeat;
     &:checked,
     &:checked ~ * {
-      background: url(/img/icons/star-active.svg) 0 0 / 100% no-repeat;
+      background: url(../img/icons/star-active.svg) 0 0 / 100% no-repeat;
     }
   }
   &__quantity {
