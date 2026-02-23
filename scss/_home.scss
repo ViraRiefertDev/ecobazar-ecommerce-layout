@@ -29,6 +29,9 @@
   // .page__sale
   &__sale {
   }
+  // .page__hot
+  &__hot {
+  }
 }
 
 //------------------------------------------------------------------------
@@ -406,6 +409,14 @@
   &--black {
     color: $grey9;
   }
+  @media (any-hover: hover) and (any-pointer: fine) {
+    &:hover,
+    &:focus-visible {
+      .item-sale__image {
+        scale: 1.05;
+      }
+    }
+  }
   // .item-sale__link
   &__link {
     display: block;
@@ -453,6 +464,7 @@
     left: 0;
     object-fit: cover;
     object-position: bottom;
+    transition: scale 0.8s;
   }
   // .item-sale__info
   &__info {
@@ -484,5 +496,17 @@
       @include typography("L", 600);
       color: $yellow;
     }
+  }
+}
+
+//------------------------------------------------------------------------
+//-----HOT DEALS--------------------
+//------------------------------------------------------------------------
+
+.hot {
+  @include adaptiveValue("padding-block", 60, 30);
+  background-color: $grey15;
+  // .hot__container
+  &__container {
   }
 }
