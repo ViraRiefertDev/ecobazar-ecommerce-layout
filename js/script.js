@@ -4,6 +4,7 @@
 //Коли все буде завантажено
 window.addEventListener('load', windowLoad)
 
+
 let isMobile
 
 function deactivateActiveMenuItem(exceptElement=null){
@@ -96,6 +97,8 @@ function initCountdowns(countdowns){
 }
 
 function initCountdownItem(countdownItem){
+  
+
   //дістаємо строку дати/часу з data-countdown у елемента
   //На приклад: <div data-countdown="2026-03-23T00:00:00">
   const goalString = countdownItem.dataset.countdown 
@@ -121,31 +124,35 @@ function initCountdownItem(countdownItem){
   //функція, яка оновлює числа на екрані
   //будемо визивати її одразу, а потім кожну секунду
   const tick = ()=>{
+    const MSECONDS_PER_DAY = 1000 * 60 * 60 * 24
+    const MSECONDS_PER_HOUR = 1000 * 60 * 60
+    const MSECONDS_PER_MIN = 1000 * 60
+    const MSECONDS_PER_SEC= 1000
     const nowMs = Date.now()
     let diffMs = goalMs - nowMs
     if(diffMs<=0) diffMs = 0
 
     //Рахуємо кількість повних днів з diffMs
     // 1000ms * 60 = 1 мин, *60 = 1 час, *24 = 1 день
-    const days = Math.floor(diffMs/(1000*60*60*24))
+    const days = Math.floor(diffMs/MSECONDS_PER_DAY)
 
     //прибираэмо з залишку повні дні
-    diffMs -= days*(1000*60*60*24)
+    diffMs -= days*MSECONDS_PER_DAY
 
     //із залишку рахуємо повні години
-    const hours = Math.floor(diffMs / (1000 * 60 * 60))
+    const hours = Math.floor(diffMs / MSECONDS_PER_HOUR)
 
     //прибираємо повні години
-    diffMs -= hours*(1000*60*60)
+    diffMs -= hours*MSECONDS_PER_HOUR
 
     //із залишка рахуємо повні хвилини
-    const minutes = Math.floor(diffMs / (1000*60))
+    const minutes = Math.floor(diffMs / MSECONDS_PER_MIN)
 
     //прибираємо повні хвилини
-    diffMs -= minutes *(1000 * 60)
+    diffMs -= minutes *MSECONDS_PER_MIN
 
     //рахуємо повні секунди
-    const seconds = Math.floor(diffMs / 1000)
+    const seconds = Math.floor(diffMs / MSECONDS_PER_SEC)
 
     //функція форматування: робить 2 знаки(05 замість 5)
     const pad2 = (n)=>String(n).padStart(2,'0')
