@@ -740,9 +740,9 @@ hr {
   .item-products:hover .add-to-cart, .item-products:focus-visible .add-to-cart {
     background-color: #00b207;
     color: #fff;
-    /*  &::before {
-      color: $white;
-    } */
+  }
+  .item-products:hover .add-to-cart::before, .item-products:focus-visible .add-to-cart::before {
+    color: #fff;
   }
   .item-products:hover .item-products__title, .item-products:focus-visible .item-products__title {
     color: #2c742f;
@@ -810,7 +810,7 @@ hr {
   }
 }
 .item-products__actions {
-  translate: 3.125rem 0;
+  translate: 6.25rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

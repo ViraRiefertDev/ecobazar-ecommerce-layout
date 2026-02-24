@@ -300,13 +300,12 @@ hr {
       z-index: 2;
       outline: toRem(1) solid $successDark;
       box-shadow: 0 0 toRem(12) 0 rgba(32, 181, 38, 0.32);
-
       .add-to-cart {
         background-color: $success;
         color: $white;
-        /*  &::before {
+        &::before {
           color: $white;
-        } */
+        }
       }
 
       .item-products__title {
@@ -361,7 +360,7 @@ hr {
   }
   // .item-products__actions
   &__actions {
-    translate: toRem(50) 0;
+    translate: toRem(100) 0;
     display: flex;
     flex-direction: column;
     gap: toRem(6);
