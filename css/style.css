@@ -1219,6 +1219,189 @@ hr {
       flex-basis: 1.25rem;
 }
 
+.sale-banner__body {
+  position: relative;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  background-color: #000;
+}
+@media (max-width: 37.5em) {
+  .sale-banner__body {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+@media (min-width: 84.375em) {
+  .sale-banner__body {
+    padding-block: 60px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .sale-banner__body {
+    padding-block: clamp( 20px , 7.572815534px  +  3.8834951456vw , 60px );
+  }
+}
+@media (max-width: 20em) {
+  .sale-banner__body {
+    padding-block: 20px;
+  }
+}
+@media (min-width: 84.375em) {
+  .sale-banner__body {
+    padding-inline: 50px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .sale-banner__body {
+    padding-inline: clamp( 20px , 10.6796116505px  +  2.9126213592vw , 50px );
+  }
+}
+@media (max-width: 20em) {
+  .sale-banner__body {
+    padding-inline: 20px;
+  }
+}
+.sale-banner__content {
+  position: relative;
+  z-index: 2;
+  max-width: 21.875rem;
+}
+.sale-banner__content > * {
+  margin-bottom: 0.75rem;
+}
+.sale-banner__content > *:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 37.5em) {
+  .sale-banner__content {
+    max-width: 36.147541%;
+  }
+}
+.sale-banner__title {
+  color: #fff;
+}
+@media (min-width: 84.375em) {
+  .sale-banner__title {
+    font-size: 18px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .sale-banner__title {
+    font-size: clamp( 16px , 15.3786407767px  +  0.1941747573vw , 18px );
+  }
+}
+@media (max-width: 20em) {
+  .sale-banner__title {
+    font-size: 16px;
+  }
+}
+.sale-banner__title {
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.sale-banner__value {
+  color: #fff;
+}
+@media (min-width: 84.375em) {
+  .sale-banner__value {
+    font-size: 56px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .sale-banner__value {
+    font-size: clamp( 32px , 24.5436893204px  +  2.3300970874vw , 56px );
+  }
+}
+@media (max-width: 20em) {
+  .sale-banner__value {
+    font-size: 32px;
+  }
+}
+.sale-banner__value {
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.sale-banner__value span {
+  color: #ff8a00;
+  font-weight: 600;
+}
+@media (min-width: 84.375em) {
+  .sale-banner__text {
+    font-size: 16px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .sale-banner__text {
+    font-size: clamp( 14px , 13.3786407767px  +  0.1941747573vw , 16px );
+  }
+}
+@media (max-width: 20em) {
+  .sale-banner__text {
+    font-size: 14px;
+  }
+}
+.sale-banner__text {
+  font-weight: 400;
+  line-height: 1.5;
+}
+@media (min-width: 84.375em) {
+  .sale-banner__text {
+    margin-bottom: 28px;
+  }
+}
+@media (min-width: 20em) and (max-width: 84.375em) {
+  .sale-banner__text {
+    margin-bottom: clamp( 15px , 10.9611650485px  +  1.2621359223vw , 28px );
+  }
+}
+@media (max-width: 20em) {
+  .sale-banner__text {
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 37.5em) {
+  .sale-banner__text {
+    color: #999;
+  }
+}
+@media (max-width: 37.5em) {
+  .sale-banner__button {
+    width: 100%;
+  }
+}
+.sale-banner__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
+}
+@media (max-width: 73.75em) {
+  .sale-banner__image {
+    -o-object-position: center;
+       object-position: center;
+  }
+}
+@media (max-width: 37.5em) {
+  .sale-banner__image {
+    opacity: 0.3;
+  }
+}
+
 .header {
   position: sticky;
   top: 0;
