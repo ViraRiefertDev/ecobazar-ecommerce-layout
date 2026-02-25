@@ -35,6 +35,10 @@
   // .page__banner
   &__banner {
   }
+
+  // .page__news
+  &__news {
+  }
 }
 
 //------------------------------------------------------------------------
@@ -511,5 +515,21 @@
   background-color: $grey15;
   // .hot__container
   &__container {
+  }
+}
+
+//------------------------------------------------------------------------
+//-----LATEST NEWS--------------------
+//------------------------------------------------------------------------
+
+.latest-news {
+  // .latest-news__container
+  &__container {
+  }
+  // .latest-news__block-header
+  &__block-header {
+  }
+  // .latest-news__items
+  &__items {
   }
 }

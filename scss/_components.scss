@@ -54,7 +54,7 @@ hr {
     @include adaptiveValue("margin-bottom", 32, 15);
   }
   &--center {
-    align-items: center;
+    text-align: center;
   }
   // .block-header__title
   &__title {
@@ -631,8 +631,16 @@ hr {
 
 //------------------------------------------------------------------------
 .sale-banner {
+  @media (any-hover: hover) and (any-pointer: fine) {
+  }
   // .sale-banner__container
   &__container {
+    &:hover,
+    &:focus-visible {
+      .sale-banner__image {
+        scale: 1.03;
+      }
+    }
   }
   // .sale-banner__body
   &__body {
@@ -705,11 +713,158 @@ hr {
     left: 0;
     object-fit: cover;
     object-position: left;
+    transition: scale 0.3s;
+
     @media (max-width: toEm(1180)) {
       object-position: center;
     }
     @media (max-width: toEm(600)) {
       opacity: 0.3;
     }
+  }
+}
+
+//------------------------------------------------------------------------
+.items-news {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(toRem(313), 100%), 1fr));
+  gap: toRem(24);
+  // .items-news__item
+  &__item {
+  }
+}
+
+.item-news {
+  overflow: hidden;
+  border-radius: toRem(8);
+  outline: toRem(1) solid $grey1;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s;
+  @media (any-hover: hover) and (any-pointer: fine) {
+    &:hover,
+    &:focus-visible {
+      outline: toRem(1) solid transparent;
+      box-shadow: 0 toRem(20) toRem(50) rgba(0, 0, 0, 0.08);
+    }
+  }
+  // .item-news__header
+  &__header {
+    position: relative;
+    aspect-ratio: 424 / 324;
+    overflow: hidden;
+    background-color: $grey15;
+  }
+  // .item-news__image-link
+  &__image-link {
+  }
+  // .item-news__image
+  &__image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    transition: scale 0.3s;
+
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        scale: 1.03;
+      }
+    }
+  }
+  // .item-news__date
+  &__date {
+    position: absolute;
+    @include typography("XL", 500);
+    @include adaptiveValue("left", 24, 10);
+    @include adaptiveValue("bottom", 24, 10);
+    background-color: $white;
+    border-radius: toRem(8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: toRem(5);
+    aspect-ratio: 1;
+    width: toRem(58);
+    color: $grey9;
+    small {
+      @include typography("T", 500);
+      text-transform: uppercase;
+      color: $grey5;
+    }
+  }
+  // .item-news__body
+  &__body {
+    @include adaptiveValue("padding", 24, 15);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+    > * {
+      margin-bottom: toRem(8);
+      &:last-child {
+        margin-bottom: toRem(0);
+      }
+    }
+  }
+  // .item-news__tags
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: toRem(5) toRem(16);
+  }
+  // .item-news__tag
+  &__tag {
+    color: $grey7;
+    @include typography("S");
+    display: flex;
+    align-items: center;
+    gap: toRem(3);
+    transition: color 0.3s;
+    &::before {
+      transition: color 0.3s;
+      color: $grey3;
+    }
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        color: $successDark;
+        &::before {
+          color: $successDark;
+        }
+      }
+    }
+    // .item-news__tag--icon-label
+    &--icon-label {
+    }
+    // .item-news__tag--icon-author
+    &--icon-author {
+    }
+    // .item-news__tag--icon-comments
+    &--icon-comments {
+    }
+  }
+  // .item-news__title
+  &__title {
+    margin-bottom: toRem(20);
+    flex-grow: 1;
+  }
+  // .item-news__link-title
+  &__link-title {
+    transition: color 0.3s;
+    @include typography("L", 500);
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        color: $successDark;
+      }
+    }
+  }
+  // .item-news__arrow-link
+  &__arrow-link {
   }
 }
