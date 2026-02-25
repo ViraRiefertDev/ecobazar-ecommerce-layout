@@ -33,20 +33,20 @@ function dynamicAdaptHeader(){
   const topHeader = document.querySelector('.top-header')
   const menu = document.querySelector('.menu')
   const header = document.querySelector('.header')
-
   const phoneHeader = document.querySelector('.bottom-header__phone')
   const searchHeader = document.querySelector('.search-header')
-
   const bottomContainer = document.querySelector('.bottom-header__container')
   const actionsHeader = document.querySelector('.actions-header') 
   const placeSearch = document.querySelector('.body-header__place-search') 
-
-  //динамічний адаптив
-  //будуємо подію медіазапит mathMedia - це як @media в CSS
-  const media = window.matchMedia("(max-width: 767.98px)")
-  media.addEventListener('change',(e)=>dynamicAdaptHeaderInit(e))
-  //викликаємо функцію відразу, щоб при завантаженні вона також спрацювала
-  dynamicAdaptHeaderInit(media)
+  
+  if(header){
+    //динамічний адаптив
+    //будуємо подію медіазапит mathMedia - це як @media в CSS
+    const media = window.matchMedia("(max-width: 767.98px)")
+    media.addEventListener('change',(e)=>dynamicAdaptHeaderInit(e))
+    //викликаємо функцію відразу, щоб при завантаженні вона також спрацювала
+    dynamicAdaptHeaderInit(media)
+  }
 
   function dynamicAdaptHeaderInit(media){
     if(media.matches){
