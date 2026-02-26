@@ -92,6 +92,9 @@ hr {
     // .block-header__slider-arrow--right
     &--right {
     }
+    &.swiper-button-lock {
+      display: none;
+    }
 
     @media (any-hover: hover) and (any-pointer: fine) {
       &:hover,
@@ -868,3 +871,5 @@ hr {
   &__arrow-link {
   }
 }
+
+//------------------------------------------------------------------------
