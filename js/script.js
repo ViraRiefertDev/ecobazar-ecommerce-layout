@@ -26,6 +26,7 @@ function windowLoad(){
   countdowns.length ? initCountdowns(countdowns):null
 
   dynamicAdaptHeader();
+  slidersInit();
 
 }
 
@@ -217,3 +218,35 @@ function initCountdownItem(countdownItem){
 
   countdownItem._countdownIntervalId = setInterval(tick, 1000);
 }
+
+function slidersInit(){
+  if(document.querySelector('.slider-reviews')){
+      const sliderReviews = new Swiper('.slider-reviews', {
+      loop: true,
+      // Navigation arrows
+      navigation: {
+        nextEl: '.block-header__slider-arrow--right',
+        prevEl: '.block-header__slider-arrow--left',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.1,
+          spaceBetween: 10,
+        },
+        600:{
+          slidesPerView: 1.4,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1050: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
+      }, 
+    });
+  }
+}
+
