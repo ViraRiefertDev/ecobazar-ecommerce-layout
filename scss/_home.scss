@@ -6,7 +6,7 @@
 //-----PAGE--------------------
 //------------------------------------------------------------------------
 .page {
-  > * {
+  > *:not(.subscribe) {
     @include adaptiveValue("margin-bottom", 60, 30);
   }
   // > *:last-child {
@@ -42,6 +42,14 @@
 
   // .page__reviews
   &__reviews {
+  }
+
+  // .page__partners
+  &__partners {
+  }
+
+  // .page__instagram
+  &__instagram {
   }
 }
 
@@ -626,5 +634,140 @@
   &__type {
     @include typography("S", 400);
     color: $grey4;
+  }
+}
+
+//------------------------------------------------------------------------
+//-----PARTNERS--------------------
+//------------------------------------------------------------------------
+
+.partners {
+  // .partners__container
+  &__container {
+  }
+
+  // .partners__list
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: toRem(20);
+  }
+  // .partners__item
+  &__item {
+    text-align: center;
+    padding-inline: 5%;
+    flex-grow: 1;
+    border-right: toRem(1) solid $grey1;
+    &:first-child {
+      padding-left: toRem(0);
+    }
+    &:last-child {
+      border-right: none;
+      padding-right: toRem(0);
+    }
+  }
+  // .partners__link
+  &__link {
+    filter: grayscale(1);
+    opacity: 0.4;
+    transition:
+      filter 0.3s,
+      opacity 0.3s;
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+//------------------------------------------------------------------------
+//-----INSTAGRAM--------------------
+//------------------------------------------------------------------------
+
+.instagram {
+  // .instagram__container
+  &__container {
+  }
+  // .instagram__block-header
+  &__block-header {
+  }
+
+  // .instagram__items
+  &__items {
+    display: grid;
+    @include adaptiveValue("gap", 24, 10);
+    grid-template-columns: repeat(auto-fill, minmax(toRem(180), 1fr));
+    @media (max-width: toEm($tablet)) {
+      overflow: auto;
+      display: flex;
+      scroll-snap-type: x mandatory;
+      margin-inline: toRem(-15);
+      padding-left: toRem(15);
+      scroll-padding-left: toRem(15);
+      scrollbar-width: none;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  // .instagram__item
+  &__item {
+    overflow: hidden;
+    border-radius: toRem(10);
+    position: relative;
+    aspect-ratio: 1;
+
+    &::before {
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "iconfont";
+      content: "\e913";
+      color: $white;
+      @include typography("XXL");
+      background-color: rgba(43, 87, 46, 0.8);
+      transition: opacity 0.3s;
+      [data-touch] & {
+        opacity: 1;
+        background-color: transparent;
+        @include typography("h4");
+        background-color: rgba(43, 87, 46, 0.4);
+      }
+    }
+
+    @media (any-hover: hover) and (any-pointer: fine) {
+      &:hover,
+      &:focus-visible {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+    @media (max-width: toEm($tablet)) {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: toRem(150);
+      scroll-snap-align: start;
+      &:last-child {
+        margin-right: toRem(15);
+      }
+    }
+  }
+  // .instagram__image
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
